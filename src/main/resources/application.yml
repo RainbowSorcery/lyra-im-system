@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: lyra-im-system
+
+  datasource:
+      username: root
+      password: 365373011
+      url: jdbc:mysql://192.168.18.114:3306/lyra_im
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    database: mysql
+server:
+  port: 7979
+springdoc:
+  api-docs:
+    version: openapi_3_1
