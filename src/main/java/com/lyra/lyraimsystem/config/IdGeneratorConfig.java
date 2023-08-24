@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.Serializable;
 
+/**
+ * 自定义Id生成器
+ */
 @Configuration
 public class IdGeneratorConfig implements IdentifierGenerator {
 

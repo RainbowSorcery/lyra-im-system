@@ -91,7 +91,16 @@ public class Result<T> {
         return new Result<>(ResponseEnums.FAILED, data);
     }
 
-    public static <T> Result<T> filed() {
+    public static <Object> Result<Object> filed() {
         return new Result<>(ResponseEnums.FAILED);
+    }
+
+
+    public static <Object> Result<Object> filed(ResponseEnums responseEnums, Object data) {
+        return new Result<>(responseEnums, data);
+    }
+
+    public static <Object> Result<Object> filed(ResponseEnums responseEnums) {
+        return new Result<>(responseEnums);
     }
 }

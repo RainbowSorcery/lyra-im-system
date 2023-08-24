@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserDataRepository extends CrudRepository<UserData, UserDataId>, PagingAndSortingRepository<UserData, UserDataId> {
+    UserData findByUserIdAndAppId(Long userId, Long appId);
+    UserData findByUserId(Long userId);
 }
