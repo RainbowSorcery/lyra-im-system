@@ -1,8 +1,10 @@
 package com.lyra.lyraimsystem.service.impl;
 
 import com.lyra.lyraimsystem.Repository.UserDataRepository;
+import com.lyra.lyraimsystem.common.DeleteFlagEnums;
 import com.lyra.lyraimsystem.common.ResponseEnums;
 import com.lyra.lyraimsystem.common.Result;
+import com.lyra.lyraimsystem.domain.dto.DeleteUserDTO;
 import com.lyra.lyraimsystem.domain.dto.GetUserInfoDTO;
 import com.lyra.lyraimsystem.domain.dto.ImportUserDTO;
 import com.lyra.lyraimsystem.domain.entity.UserData;
@@ -58,5 +60,27 @@ public class UserServiceImpl implements IUserService {
         return Result.ok(userDataList);
     }
 
+    @Override
+    public Result<Object> delete(DeleteUserDTO deleteUserDTO) {
+        UserData userData = userDataRepository.findByUserIdAndAppId(deleteUserDTO.getUserId(), deleteUserDTO.getAppId());
+
+        if (userData == null) {
+            log.info("用户不存在:{}", deleteUserDTO);
+            throw new LyraImException(ResponseEnums.USER_NOT_FOUND, deleteUserDTO);
+        }
+
+        userData.setDelFlag(DeleteFlagEnums.YES.getStatus());
+
+        userDataRepository.save(userData);
+
+            return Result.ok();
+    }
+
+    @Override
+    public Result<Object> edit(UserData userData) {
+        userDataRepository.save(userData);
+
+        return Result.ok();
+    }
 
 }

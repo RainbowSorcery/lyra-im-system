@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 用户信息主键
  */
-public class UserDataId implements Serializable {
+public class UserDataPrk implements Serializable {
     @Schema(description = "用户id")
     private Long userId;
 

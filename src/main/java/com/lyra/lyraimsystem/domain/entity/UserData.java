@@ -6,14 +6,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * 用户数据
  */
 @Entity
 @Table(name = "user_data")
-@IdClass(UserDataId.class)
+@IdClass(UserDataPrk.class)
 public class UserData {
 
     @Schema(description = "用户id")
@@ -34,8 +34,8 @@ public class UserData {
     private Short userSex;
 
     @Schema(description = "生日")
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
-    private LocalDate birthday;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime birthday;
 
     @Schema(description = "所在地")
     private String location;
@@ -71,7 +71,6 @@ public class UserData {
     private String extra;
 
 
-
     public String getNickName() {
         return nickName;
     }
@@ -88,11 +87,11 @@ public class UserData {
         this.userSex = userSex;
     }
 
-    public LocalDate getBirthday() {
+    public LocalDateTime getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(LocalDateTime birthday) {
         this.birthday = birthday;
     }
 
@@ -111,7 +110,6 @@ public class UserData {
     public void setSelfSignature(String selfSignature) {
         this.selfSignature = selfSignature;
     }
-
 
 
     public String getPhoto() {

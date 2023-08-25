@@ -22,7 +22,7 @@ public class IMExceptionHandler {
         }
 
         return new Result<>(lyraImException.getResponseEnums(), lyraImException.getMessage());
-    }
+    }   
 
     @ExceptionHandler(value = Exception.class)
     public Result<Object> handler(Exception e) {

@@ -4,7 +4,9 @@ public enum ResponseEnums {
     SUCCESSFUL(200, true, "成功"),
     FAILED(500, false, "失败"),
     APPID_IS_NULL(501, false, "APPID为空"),
-    USER_NOT_FOUND(502, false, "用户不存在");
+    USER_NOT_FOUND(502, false, "用户不存在"),
+    PARAM_IS_NULL(504, false, "参数为空"),
+    ;
     private Integer code;
 
     private Boolean successful;
